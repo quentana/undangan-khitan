@@ -184,58 +184,101 @@ section {
     border: 1px solid #eef2f0;
 }
 
+/* ===== FOTO CARD ===== */
 .foto-card {
-    margin-bottom: 32px;
+    margin: 0 auto 32px auto; /* auto = tengah */
     position: relative;
+    width: 400px;
 }
 
-/* Efek background di belakang foto (seperti card dengan shadow dan garis) */
+/* Shadow card di belakang */
 .foto-card::before {
     content: '';
     position: absolute;
-    top: 12px;
-    left: 12px;
-    right: -12px;
-    bottom: -12px;
-    background: linear-gradient(135deg, var(--navy-mist), var(--gold-muted));
-    border-radius: 28px;
-    z-index: 0;
-    opacity: 0.25;
-    transition: all 0.3s ease;
+    inset: 0;
+    border: 1px solid rgba(28, 78, 99, 0.25);
+    transform: translate(10px, 10px);
+    z-index: -1;
+    background-color: var(--navy-light-bg);
 }
 
 .foto-card-inner {
     position: relative;
-    z-index: 1;
     background: white;
-    border-radius: 28px;
-    padding: 12px;
-    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(28, 78, 99, 0.2);
+    padding: 10px;
     transition: transform 0.3s ease;
 }
 
 .foto-card-inner:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+}
+
+/* Corner accents atas */
+.foto-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-width: 2px 0 0 2px;
+    border-style: solid;
+    border-color: var(--gold-muted);
+}
+
+.foto-card-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-width: 2px 2px 0 0;
+    border-style: solid;
+    border-color: var(--gold-muted);
+}
+
+/* Corner accents bawah */
+.foto-card-corner-bl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-width: 0 0 2px 2px;
+    border-style: solid;
+    border-color: var(--gold-muted);
+}
+
+.foto-card-corner-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: var(--gold-muted);
 }
 
 .foto-putra {
     width: 100%;
-    max-width: 280px;
-    height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
-    border-radius: 20px;
     display: block;
-    margin: 0 auto;
-    background-color: #eef3f2;
+
+    
 }
 
 .foto-card-caption {
-    margin-top: 16px;
-    font-size: 0.8rem;
+    margin-top: 12px;
+    font-size: 0.7rem;
     font-weight: 500;
     color: var(--navy-mist);
-    letter-spacing: 0.3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .assalam {
@@ -570,4 +613,13 @@ section {
   color: var(--navy-deep);
   box-shadow: 0 0 0 2px rgba(191,158,107,0.4);
 }
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero-name { font-size: 1.2rem; }
+  .foto-card { width: 180px; }
+  .info-single-card { padding: 20px; }
+  .map-container iframe { height: 220px; }
+  .closing-message { font-size: 0.9rem; }
+}
+
 }
